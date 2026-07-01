@@ -2,7 +2,7 @@ import { join } from "node:path"
 
 Deno.serve(async (request: Request): Promise<Response> => {
     const { pathname } = new URL(request.url)
-    if (!/files\/*.json/.test(pathname)) {
+    if (!/\/files\/.+.json/.test(pathname)) {
         return new Response("不是有效的文件路径", { status: 403 })
     }
 
