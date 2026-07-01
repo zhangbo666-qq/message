@@ -1,4 +1,4 @@
-import { join } from "deno://std/path"
+import { join } from "node:path"
 
 Deno.serve(async (request: Request): Promise<Response> => {
     const { pathname } = new URL(request.url)
