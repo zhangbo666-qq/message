@@ -6,7 +6,7 @@ Deno.serve(async (request: Request): Promise<Response> => {
         return new Response("不是有效的文件路径", { status: 403 })
     }
 
-    const filePath = join(Deno.cwd(), pathname)
+    const filePath = join(Deno.cwd(), decodeURIComponent(pathname))
     try {
         const fileContent = await Deno.readTextFile(filePath)
         return new Response(fileContent, {
